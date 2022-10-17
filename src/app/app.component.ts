@@ -12,16 +12,15 @@ export class AppComponent {
   avatar = "";
   id = 0;
   createdAt = "";
+
+  personas: any = [];
   constructor(private _mockService : MockService){
     this.obtenerUsuarios();
   }
 
   obtenerUsuarios(){
     this._mockService.getUsuarios().subscribe(data => {
-      this.nombre = data[0].name;
-      this.avatar = data[0].avatar;
-      this.createdAt = data[0].createdAt;
-      this.id = data[0].id;
+      this.personas = data;
     });
   }
 }
